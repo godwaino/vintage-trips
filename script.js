@@ -3,6 +3,7 @@ const navLinks = document.querySelector('.nav-links');
 const yearEl = document.querySelector('#year');
 const form = document.querySelector('#signup-form');
 const formMessage = document.querySelector('#form-message');
+const faqItems = document.querySelectorAll('.faq-list details');
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
@@ -27,7 +28,23 @@ if (form && formMessage) {
       return;
     }
 
-    formMessage.textContent = 'Thanks! You are on the VintageTrips early-access list.';
+    formMessage.textContent = 'Thanks! You are on the VintageTrips founders waitlist.';
     form.reset();
+  });
+}
+
+if (faqItems.length > 0) {
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (!item.open) {
+        return;
+      }
+
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.open = false;
+        }
+      });
+    });
   });
 }
