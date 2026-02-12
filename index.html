@@ -1,167 +1,178 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VintageTrips.com | Luxury Nostalgic Journeys by Rail, Road & Sea</title>
-    <meta name="description" content="VintageTrips curates premium retro-inspired journeys with concierge planning, cinematic itineraries, and handpicked heritage stays." />
-    <meta name="keywords" content="vintage travel, heritage train vacations, luxury road trips, slow travel, curated itineraries" />
-    <meta property="og:title" content="VintageTrips.com | Luxury Nostalgic Journeys" />
-    <meta property="og:description" content="A premium travel brand crafting timeless rail, road, and ocean experiences with modern comfort." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://godwaino.github.io/vintagetrips-site" />
-    <meta property="og:image" content="https://godwaino.github.io/vintagetrips-site/og-image.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="VintageTrips.com" />
-    <meta name="twitter:description" content="Luxury nostalgic journeys by rail, road & sea." />
-    <meta name="twitter:image" content="https://godwaino.github.io/vintagetrips-site/og-image.svg" />
-    <link rel="canonical" href="https://godwaino.github.io/vintagetrips-site" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header class="site-header" id="top">
-      <nav class="nav container glass">
-        <a href="/" class="brand" aria-label="VintageTrips Home">Vintage<span>Trips</span></a>
-        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        <ul class="nav-links">
-          <li><a href="/trips.html">Browse Trips</a></li>
-          <li><a href="#itineraries">Itineraries</a></li>
-          <li><a href="#seo-pages">Guides</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#newsletter">Newsletter</a></li>
-        </ul>
-      </nav>
+---
+layout: default
+title: Luxury Nostalgic Journeys by Rail, Road & Sea
+description: VintageTrips curates premium retro-inspired journeys with concierge planning, cinematic itineraries, and handpicked heritage stays.
+keywords: vintage travel, heritage train vacations, luxury road trips, slow travel, curated itineraries
+---
 
-      <section class="hero container">
-        <div class="hero-copy">
-          <p class="eyebrow">Cinematic travel. Real concierge support.</p>
-          <h1>A Rich, Colorful Travel Experience Before You Even Book.</h1>
-          <p>From velvet-car rail journeys to sunlit coastal loops, VintageTrips brings old-world romance with modern premium planning.</p>
-          <div class="hero-cta">
-            <a href="#newsletter" class="btn btn-primary">Join Founders List</a>
-            <a href="/trips.html" class="btn btn-secondary">Browse All Trips</a>
-          </div>
-        </div>
-        <aside class="hero-panel gradient-card">
-          <h3>Why travelers choose us</h3>
-          <ul>
-            <li>✨ Boutique stays + iconic routes</li>
-            <li>🎯 Handcrafted pacing, not rushed tours</li>
-            <li>📞 24/7 human concierge</li>
-          </ul>
-        </aside>
-      </section>
-    </header>
+<style>
+  /* Homepage specific styles */
+  .site-header {
+    padding: 2rem 0 5rem;
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
+  .hero-copy p {
+    max-width: 60ch;
+    font-size: 1.05rem;
+    color: var(--bg);
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .gradient-card {
+    background: linear-gradient(135deg, 
+      rgba(255, 248, 238, 0.25) 0%, 
+      rgba(216, 205, 190, 0.15) 100%);
+    border: 2px solid rgba(178, 58, 58, 0.4);
+    border-radius: 12px;
+    padding: 1.8rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(31, 42, 68, 0.2);
+  }
+  .gradient-card h3 {
+    margin-bottom: 1.2rem;
+    color: var(--surface);
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .gradient-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .gradient-card li {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+    color: var(--bg);
+  }
+  @media (max-width: 920px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
-    <main>
-      <section class="section container" id="itineraries">
-        <div class="section-header">
-          <p class="eyebrow">Signature journeys</p>
-          <h2>Popular Experiences</h2>
-        </div>
-        <div class="cards three-up">
-          <article class="card rich-card animate-on-scroll">
-            <h3>Grand Continental Sleeper</h3>
-            <p>Paris → Venice → Vienna with luxe rail cabins and private city hosts.</p>
-            <a href="/paris-venice-vienna-rail.html" class="card-link">Learn more →</a>
-          </article>
-          <article class="card rich-card animate-on-scroll">
-            <h3>Route 66 Heritage Drive</h3>
-            <p>A colorful Americana road odyssey with retro lodges and local storytellers.</p>
-            <a href="/route-66-luxury-road-trip.html" class="card-link">Learn more →</a>
-          </article>
-          <article class="card rich-card animate-on-scroll">
-            <h3>Retro Tokyo to Kyoto</h3>
-            <p>Showa neighborhoods, jazz bars, ryokans, and design-focused cultural stops.</p>
-            <a href="/japan-vintage-hotels-guide.html" class="card-link">Learn more →</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section accent" id="seo-pages">
-        <div class="container">
-          <div class="section-header">
-            <p class="eyebrow">10 SEO landing pages</p>
-            <h2>Destination & Intent Guides</h2>
-          </div>
-          <div class="cards two-up">
-            <a class="card link-card" href="/vintage-train-routes-europe.html">🚂 Best Vintage Train Routes in Europe</a>
-            <a class="card link-card" href="/route-66-luxury-road-trip.html">🚗 Luxury Route 66 Road Trip Guide</a>
-            <a class="card link-card" href="/japan-vintage-hotels-guide.html">🏯 Vintage Hotels in Japan</a>
-            <a class="card link-card" href="/retro-honeymoon-itineraries.html">💑 Retro-Inspired Honeymoon Itineraries</a>
-            <a class="card link-card" href="/scenic-coastal-voyages.html">⛵ Scenic Coastal Voyages</a>
-            <a class="card link-card" href="/best-time-for-heritage-travel.html">🗓️ Best Time for Heritage Travel</a>
-            <a class="card link-card" href="/paris-venice-vienna-rail.html">🚄 Paris-Venice-Vienna Rail Journey</a>
-            <a class="card link-card" href="/new-england-fall-roadtrip.html">🍂 New England Fall Road Trip</a>
-            <a class="card link-card" href="/kyoto-retro-cultural-itinerary.html">⛩️ Kyoto Retro Cultural Itinerary</a>
-            <a class="card link-card" href="/luxury-slow-travel-guide.html">🌍 Luxury Slow Travel Guide</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section container" id="faq">
-        <div class="section-header">
-          <p class="eyebrow">Common questions</p>
-          <h2>FAQ</h2>
-        </div>
-        <div class="faq-list">
-          <details>
-            <summary>Do you customize trips?</summary>
-            <p>Yes, every itinerary can be personalized by pace, style, and region. Our concierge team works with you to create the perfect vintage travel experience tailored to your preferences.</p>
-          </details>
-          <details>
-            <summary>Is this premium-only?</summary>
-            <p>Mostly premium, with selected mid-range curated options available. We believe in quality over quantity and handpick every accommodation and experience.</p>
-          </details>
-          <details>
-            <summary>How far ahead should I book?</summary>
-            <p>3-6 months is ideal for heritage rail and boutique properties. Popular routes like the Venice Simplon-Orient-Express can require even earlier booking.</p>
-          </details>
-          <details>
-            <summary>What's included in your packages?</summary>
-            <p>Our packages include accommodations, transportation, 24/7 concierge support, curated experiences, and detailed itineraries. Meals and optional activities can be added based on your preferences.</p>
-          </details>
-          <details>
-            <summary>Do you offer group travel?</summary>
-            <p>Yes! We can arrange intimate group experiences for 4-12 travelers, perfect for friends, families, or special celebrations.</p>
-          </details>
-        </div>
-      </section>
-
-      <section class="section accent" id="newsletter">
-        <div class="container newsletter-wrap">
-          <div>
-            <p class="eyebrow">Join our community</p>
-            <h2>Get launch invites & early pricing</h2>
-            <p>Be the first to know about new routes, exclusive deals, and vintage travel inspiration.</p>
-          </div>
-          <form class="newsletter" id="signup-form" action="https://formsubmit.co/godwin@sabsdomains.com" method="POST">
-            <input type="hidden" name="_subject" value="New VintageTrips Waitlist Signup">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            
-            <label for="email" class="sr-only">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
-            <button type="submit" class="btn btn-primary">Join Waitlist</button>
-            <p id="form-message" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-wrap">
-        <div>
-          <p class="brand-footer">Vintage<span>Trips</span></p>
-          <p>© <span id="year"></span> VintageTrips.com. All rights reserved.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <a href="/privacy.html">Privacy</a> · 
-          <a href="/terms.html">Terms</a> · 
-          <a href="#top">Back to Top ↑</a>
-        </nav>
+<header class="site-header" id="top">
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="eyebrow">Cinematic travel. Real concierge support.</p>
+      <h1>A Rich, Colorful Travel Experience Before You Even Book.</h1>
+      <p>From velvet-car rail journeys to sunlit coastal loops, VintageTrips brings old-world romance with modern premium planning.</p>
+      <div class="hero-cta">
+        <a href="#newsletter" class="btn btn-primary">Join Founders List</a>
+        <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">Browse All Trips</a>
       </div>
-    </footer>
-  </body>
-</html>
+    </div>
+    <aside class="hero-panel gradient-card">
+      <h3>Why travelers choose us</h3>
+      <ul>
+        <li>✨ Boutique stays + iconic routes</li>
+        <li>🎯 Handcrafted pacing, not rushed tours</li>
+        <li>📞 24/7 human concierge</li>
+      </ul>
+    </aside>
+  </section>
+</header>
+
+<section class="section container" id="itineraries">
+  <div class="section-header">
+    <p class="eyebrow">Signature journeys</p>
+    <h2>Popular Experiences</h2>
+  </div>
+  <div class="cards three-up">
+    <article class="card rich-card animate-on-scroll">
+      <h3>Grand Continental Sleeper</h3>
+      <p>Paris → Venice → Vienna with luxe rail cabins and private city hosts.</p>
+      <a href="{{ site.baseurl }}/paris-venice-vienna-rail.html" class="card-link">Learn more →</a>
+    </article>
+    <article class="card rich-card animate-on-scroll">
+      <h3>Route 66 Heritage Drive</h3>
+      <p>A colorful Americana road odyssey with retro lodges and local storytellers.</p>
+      <a href="{{ site.baseurl }}/route-66-luxury-road-trip.html" class="card-link">Learn more →</a>
+    </article>
+    <article class="card rich-card animate-on-scroll">
+      <h3>Retro Tokyo to Kyoto</h3>
+      <p>Showa neighborhoods, jazz bars, ryokans, and design-focused cultural stops.</p>
+      <a href="{{ site.baseurl }}/japan-vintage-hotels-guide.html" class="card-link">Learn more →</a>
+    </article>
+  </div>
+</section>
+
+<section class="section accent" id="seo-pages">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Destination & Intent Guides</p>
+      <h2>Explore Our Travel Guides</h2>
+    </div>
+    <div class="cards two-up">
+      <a class="card link-card" href="{{ site.baseurl }}/vintage-train-routes-europe.html">🚂 Best Vintage Train Routes in Europe</a>
+      <a class="card link-card" href="{{ site.baseurl }}/route-66-luxury-road-trip.html">🚗 Luxury Route 66 Road Trip Guide</a>
+      <a class="card link-card" href="{{ site.baseurl }}/japan-vintage-hotels-guide.html">🏯 Vintage Hotels in Japan</a>
+      <a class="card link-card" href="{{ site.baseurl }}/retro-honeymoon-itineraries.html">💑 Retro-Inspired Honeymoon Itineraries</a>
+      <a class="card link-card" href="{{ site.baseurl }}/scenic-coastal-voyages.html">⛵ Scenic Coastal Voyages</a>
+      <a class="card link-card" href="{{ site.baseurl }}/best-time-for-heritage-travel.html">🗓️ Best Time for Heritage Travel</a>
+      <a class="card link-card" href="{{ site.baseurl }}/paris-venice-vienna-rail.html">🚄 Paris-Venice-Vienna Rail Journey</a>
+      <a class="card link-card" href="{{ site.baseurl }}/new-england-fall-roadtrip.html">🍂 New England Fall Road Trip</a>
+      <a class="card link-card" href="{{ site.baseurl }}/kyoto-retro-cultural-itinerary.html">⛩️ Kyoto Retro Cultural Itinerary</a>
+      <a class="card link-card" href="{{ site.baseurl }}/luxury-slow-travel-guide.html">🌍 Luxury Slow Travel Guide</a>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="faq">
+  <div class="section-header">
+    <p class="eyebrow">Common questions</p>
+    <h2>FAQ</h2>
+  </div>
+  <div class="faq-list">
+    <details>
+      <summary>Do you customize trips?</summary>
+      <p>Yes, every itinerary can be personalized by pace, style, and region. Our concierge team works with you to create the perfect vintage travel experience tailored to your preferences.</p>
+    </details>
+    <details>
+      <summary>Is this premium-only?</summary>
+      <p>Mostly premium, with selected mid-range curated options available. We believe in quality over quantity and handpick every accommodation and experience.</p>
+    </details>
+    <details>
+      <summary>How far ahead should I book?</summary>
+      <p>3-6 months is ideal for heritage rail and boutique properties. Popular routes like the Venice Simplon-Orient-Express can require even earlier booking.</p>
+    </details>
+    <details>
+      <summary>What's included in your packages?</summary>
+      <p>Our packages include accommodations, transportation, 24/7 concierge support, curated experiences, and detailed itineraries. Meals and optional activities can be added based on your preferences.</p>
+    </details>
+    <details>
+      <summary>Do you offer group travel?</summary>
+      <p>Yes! We can arrange intimate group experiences for 4-12 travelers, perfect for friends, families, or special celebrations.</p>
+    </details>
+  </div>
+</section>
+
+<section class="section accent" id="newsletter">
+  <div class="container newsletter-wrap">
+    <div>
+      <p class="eyebrow">Join our community</p>
+      <h2>Get launch invites & early pricing</h2>
+      <p>Be the first to know about new routes, exclusive deals, and vintage travel inspiration.</p>
+    </div>
+    <form class="newsletter" id="signup-form" action="https://formsubmit.co/godwin@sabsdomains.com" method="POST">
+      <input type="hidden" name="_subject" value="New VintageTrips Waitlist Signup">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      
+      <label for="email" class="sr-only">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
+      <button type="submit" class="btn btn-primary">Join Waitlist</button>
+      <p id="form-message" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
