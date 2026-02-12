@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Browse Vintage Trips Worldwide
-description: Discover and book curated vintage travel experiences worldwide - heritage trains, classic road trips, retro cruises, and boutique stays across all continents.
+description: Discover curated vintage travel experiences worldwide - heritage trains, classic road trips, retro cruises, and boutique stays across all continents.
 keywords: vintage travel, heritage trips, luxury train travel, classic road trips, retro hotels, vintage cruises, worldwide travel
 ---
 
@@ -126,14 +126,10 @@ keywords: vintage travel, heritage trips, luxury train travel, classic road trip
     border-top: 1px solid var(--border);
     margin-top: auto;
   }
-  .trip-price {
-    font-size: 1.1rem;
-    color: var(--accent);
-    font-weight: 700;
-  }
   .trip-duration {
     color: var(--secondary);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
   .trip-link {
     display: inline-block;
@@ -146,6 +142,7 @@ keywords: vintage travel, heritage trips, luxury train travel, classic road trip
     margin-top: 1rem;
     text-align: center;
     transition: var(--transition);
+    font-size: 0.9rem;
   }
   .trip-link:hover {
     background: var(--accent-hover);
@@ -209,10 +206,9 @@ keywords: vintage travel, heritage trips, luxury train travel, classic road trip
               <p class="trip-location">📍 {{ trip.location }}</p>
               <p class="trip-description">{{ trip.description }}</p>
               <div class="trip-meta">
-                <span class="trip-duration">{{ trip.duration }}</span>
-                <span class="trip-price">From {{ trip.price_from }}</span>
+                <span class="trip-duration">⏱️ {{ trip.duration }}</span>
               </div>
-              <a href="{{ trip.affiliate_url }}" class="trip-link">View Details & Book →</a>
+              <a href="{{ site.baseurl }}/request-itinerary.html?trip={{ trip.title | url_encode }}" class="trip-link">Request Information →</a>
             </div>
           </article>
         {% endfor %}
@@ -224,7 +220,7 @@ keywords: vintage travel, heritage trips, luxury train travel, classic road trip
     <div class="container">
       <h2 style="color: var(--primary); margin-bottom: 1rem;">Can't Find Your Perfect Trip?</h2>
       <p style="color: var(--secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Our concierge team can create custom vintage travel experiences tailored to your preferences, budget, and timeline.</p>
-      <a href="{{ site.baseurl }}/#newsletter" class="btn btn-primary" style="display: inline-block;">Request Custom Itinerary</a>
+      <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary" style="display: inline-block;">Request Custom Itinerary</a>
     </div>
   </section>
 </div>
