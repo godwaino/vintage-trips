@@ -1,0 +1,16 @@
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <div>
+      <p class="brand-footer">Vintage<span>Trips</span></p>
+      <p>© <span id="year"></span> VintageTrips.com. All rights reserved.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="{{ site.baseurl }}/privacy.html">Privacy</a> · 
+      <a href="{{ site.baseurl }}/terms.html">Terms</a> · 
+      <a href="#top">Back to Top ↑</a>
+    </nav>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
