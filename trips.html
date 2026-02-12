@@ -1,571 +1,255 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Browse Vintage Trips Worldwide | VintageTrips</title>
-  <meta name="description" content="Discover and book curated vintage travel experiences worldwide - heritage trains, classic road trips, retro cruises, and boutique stays across all continents.">
-  <meta name="keywords" content="vintage travel, heritage trips, luxury train travel, classic road trips, retro hotels, vintage cruises, worldwide travel">
-  <link rel="canonical" href="https://vintagetrips.com/trips.html">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .trips-hero {
-      background: linear-gradient(135deg, var(--vintage-burgundy) 0%, var(--vintage-brown) 100%);
-      padding: 4rem 0 3rem;
-      color: var(--vintage-cream);
-      text-align: center;
-    }
-    .trips-hero h1 {
-      color: var(--vintage-cream);
-      margin-bottom: 1rem;
-    }
-    .trips-hero p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      color: var(--vintage-beige);
-    }
-    .filter-bar {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 2rem 0;
-      background: var(--vintage-cream);
-      border-bottom: 2px solid var(--vintage-tan);
-    }
-    .filter-btn {
-      padding: 0.6rem 1.2rem;
-      border: 2px solid var(--vintage-tan);
-      background: white;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: 'Arial', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--vintage-brown);
-      transition: var(--transition);
-    }
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--vintage-burgundy);
-      color: var(--vintage-cream);
-      border-color: var(--vintage-burgundy);
-    }
-    .trips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
-      padding: 3rem 0;
-    }
-    .trip-card {
-      background: white;
-      border: 2px solid var(--vintage-tan);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-    .trip-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(46, 36, 25, 0.2);
-      border-color: var(--vintage-gold);
-    }
-    .trip-image {
-      width: 100%;
-      height: 220px;
-      background: linear-gradient(135deg, var(--vintage-beige), var(--vintage-tan));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      border-bottom: 2px solid var(--vintage-tan);
-    }
-    .trip-content {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .trip-category {
-      display: inline-block;
-      background: var(--vintage-burgundy);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.8rem;
-      align-self: flex-start;
-    }
-    .trip-title {
-      font-size: 1.3rem;
-      color: var(--vintage-dark);
-      margin-bottom: 0.6rem;
-      font-family: 'Georgia', serif;
-      font-weight: 600;
-    }
-    .trip-location {
-      color: var(--vintage-burgundy);
-      font-size: 0.9rem;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
-    .trip-description {
-      color: var(--vintage-brown);
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-      flex: 1;
-    }
-    .trip-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 1rem;
-      border-top: 1px solid var(--vintage-tan);
-      margin-top: auto;
-    }
-    .trip-price {
-      font-size: 1.1rem;
-      color: var(--vintage-burgundy);
-      font-weight: 700;
-    }
-    .trip-duration {
-      color: var(--vintage-brown);
-      font-size: 0.85rem;
-    }
-    .trip-link {
-      display: inline-block;
-      background: var(--vintage-gold);
-      color: var(--vintage-dark);
-      padding: 0.7rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-      text-align: center;
-      transition: var(--transition);
-    }
-    .trip-link:hover {
-      background: #d4b56d;
-      transform: translateY(-2px);
-    }
-    .region-header {
-      margin: 3rem 0 1.5rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 3px solid var(--vintage-gold);
-    }
-    .region-header h2 {
-      color: var(--vintage-dark);
-      font-size: 2rem;
-      font-family: 'Georgia', serif;
-    }
-  </style>
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <header class="trips-hero">
+---
+layout: default
+title: Browse Vintage Trips Worldwide
+description: Discover and book curated vintage travel experiences worldwide - heritage trains, classic road trips, retro cruises, and boutique stays across all continents.
+keywords: vintage travel, heritage trips, luxury train travel, classic road trips, retro hotels, vintage cruises, worldwide travel
+---
+
+<style>
+  .trips-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 4rem 0 3rem;
+    color: var(--surface);
+    text-align: center;
+  }
+  .trips-hero h1 {
+    color: var(--surface);
+    margin-bottom: 1rem;
+  }
+  .trips-hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: var(--bg);
+  }
+  .filter-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+  }
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--border);
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: var(--transition);
+  }
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+  .trip-card {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+  .trip-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(31, 42, 68, 0.2);
+    border-color: var(--accent);
+  }
+  .trip-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--bg), var(--border));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .trip-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .trip-category {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+    align-self: flex-start;
+  }
+  .trip-title {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+    font-family: 'Georgia', serif;
+    font-weight: 600;
+  }
+  .trip-location {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .trip-description {
+    color: var(--secondary);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+  .trip-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+  .trip-price {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .trip-duration {
+    color: var(--secondary);
+    font-size: 0.85rem;
+  }
+  .trip-link {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
+    transition: var(--transition);
+  }
+  .trip-link:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  .region-header {
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px solid var(--accent);
+  }
+  .region-header h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    font-family: 'Georgia', serif;
+  }
+</style>
+
+<header class="trips-hero">
+  <div class="container">
+    <p class="eyebrow">CURATED WORLDWIDE</p>
+    <h1>Browse Vintage Trips & Experiences</h1>
+    <p>Handpicked heritage journeys across all continents - from European sleeper trains to African safaris, Asian temple routes to South American adventures.</p>
+    <a href="{{ site.baseurl }}/" class="btn btn-secondary">← Back to Home</a>
+  </div>
+</header>
+
+<section class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All Trips</button>
+  <button class="filter-btn" data-filter="train">Heritage Trains</button>
+  <button class="filter-btn" data-filter="road">Classic Road Trips</button>
+  <button class="filter-btn" data-filter="cruise">Vintage Cruises</button>
+  <button class="filter-btn" data-filter="hotel">Boutique Stays</button>
+  <button class="filter-btn" data-filter="safari">Vintage Safaris</button>
+</section>
+
+<div class="container">
+  {% assign regions = site.data.trips | group_by: "region" %}
+  {% assign region_order = "Europe,Asia,Americas,Africa,Oceania" | split: "," %}
+  
+  {% for region_name in region_order %}
+    {% assign region_trips = site.data.trips | where: "region", region_name %}
+    {% if region_trips.size > 0 %}
+      <div class="region-header">
+        <h2>
+          {% if region_name == "Europe" %}🇪🇺{% endif %}
+          {% if region_name == "Asia" %}🌏{% endif %}
+          {% if region_name == "Americas" %}🌎{% endif %}
+          {% if region_name == "Africa" %}🌍{% endif %}
+          {% if region_name == "Oceania" %}🌏{% endif %}
+          {{ region_name }}
+        </h2>
+      </div>
+      
+      <div class="trips-grid">
+        {% for trip in region_trips %}
+          <article class="trip-card" data-category="{{ trip.category }}">
+            <div class="trip-image">{{ trip.emoji }}</div>
+            <div class="trip-content">
+              <span class="trip-category">{{ trip.category_label }}</span>
+              <h3 class="trip-title">{{ trip.title }}</h3>
+              <p class="trip-location">📍 {{ trip.location }}</p>
+              <p class="trip-description">{{ trip.description }}</p>
+              <div class="trip-meta">
+                <span class="trip-duration">{{ trip.duration }}</span>
+                <span class="trip-price">From {{ trip.price_from }}</span>
+              </div>
+              <a href="{{ trip.affiliate_url }}" class="trip-link">View Details & Book →</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <section class="section" style="text-align: center; padding: 4rem 0; background: var(--bg); border-radius: 12px; margin: 3rem 0;">
     <div class="container">
-      <p class="eyebrow">CURATED WORLDWIDE</p>
-      <h1>Browse Vintage Trips & Experiences</h1>
-      <p>Handpicked heritage journeys across all continents - from European sleeper trains to African safaris, Asian temple routes to South American adventures.</p>
-      <a href="/" class="btn btn-secondary">← Back to Home</a>
+      <h2 style="color: var(--primary); margin-bottom: 1rem;">Can't Find Your Perfect Trip?</h2>
+      <p style="color: var(--secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Our concierge team can create custom vintage travel experiences tailored to your preferences, budget, and timeline.</p>
+      <a href="{{ site.baseurl }}/#newsletter" class="btn btn-primary" style="display: inline-block;">Request Custom Itinerary</a>
     </div>
-  </header>
-
-  <section class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All Trips</button>
-    <button class="filter-btn" data-filter="train">Heritage Trains</button>
-    <button class="filter-btn" data-filter="road">Classic Road Trips</button>
-    <button class="filter-btn" data-filter="cruise">Vintage Cruises</button>
-    <button class="filter-btn" data-filter="hotel">Boutique Stays</button>
-    <button class="filter-btn" data-filter="safari">Vintage Safaris</button>
   </section>
+</div>
 
-  <main class="container">
-    <!-- EUROPE -->
-    <div class="region-header">
-      <h2>🇪🇺 Europe</h2>
-    </div>
-    <div class="trips-grid">
-      <article class="trip-card" data-category="train">
-        <div class="trip-image">🚂</div>
-        <div class="trip-content">
-          <span class="trip-category">Heritage Train</span>
-          <h3 class="trip-title">Venice Simplon-Orient-Express</h3>
-          <p class="trip-location">📍 London → Venice → Paris</p>
-          <p class="trip-description">Experience the golden age of travel aboard the world's most famous luxury train. Art Deco carriages, fine dining, and timeless elegance.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">2-6 days</span>
-            <span class="trip-price">From £3,300</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
+<script>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const tripCards = document.querySelectorAll('.trip-card');
 
-      <article class="trip-card" data-category="train">
-        <div class="trip-image">🚃</div>
-        <div class="trip-content">
-          <span class="trip-category">Heritage Train</span>
-          <h3 class="trip-title">West Highland Line</h3>
-          <p class="trip-location">📍 Scotland - Glasgow to Mallaig</p>
-          <p class="trip-description">One of the world's most scenic rail journeys through Scottish Highlands, across the Glenfinnan Viaduct, with vintage steam options available.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">1-3 days</span>
-            <span class="trip-price">From £150</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-      <article class="trip-card" data-category="road">
-        <div class="trip-image">🚗</div>
-        <div class="trip-content">
-          <span class="trip-category">Classic Road Trip</span>
-          <h3 class="trip-title">Amalfi Coast Classic Drive</h3>
-          <p class="trip-location">📍 Italy - Naples to Salerno</p>
-          <p class="trip-description">Wind along dramatic coastal cliffs in a vintage Fiat or Alfa Romeo. Stay in converted monasteries and family-run agriturismos.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">4-7 days</span>
-            <span class="trip-price">From €1,800</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
+      const filter = btn.dataset.filter;
 
-      <article class="trip-card" data-category="hotel">
-        <div class="trip-image">🏰</div>
-        <div class="trip-content">
-          <span class="trip-category">Boutique Stay</span>
-          <h3 class="trip-title">Château Hotels of Loire Valley</h3>
-          <p class="trip-location">📍 France - Loire Valley</p>
-          <p class="trip-description">Sleep in Renaissance châteaux turned intimate hotels. Cycling tours through vineyards, wine tastings, and Michelin-starred dining.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">3-5 nights</span>
-            <span class="trip-price">From €2,200</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="cruise">
-        <div class="trip-image">⛵</div>
-        <div class="trip-content">
-          <span class="trip-category">Vintage Cruise</span>
-          <h3 class="trip-title">Greek Island Gulet Cruise</h3>
-          <p class="trip-location">📍 Greece - Cyclades & Dodecanese</p>
-          <p class="trip-description">Traditional wooden gulet sailing between hidden coves and ancient harbors. Small group, chef-prepared meals, authentic island experiences.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">7-14 days</span>
-            <span class="trip-price">From €1,500</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- ASIA -->
-    <div class="region-header">
-      <h2>🌏 Asia</h2>
-    </div>
-    <div class="trips-grid">
-      <article class="trip-card" data-category="train">
-        <div class="trip-image">🚄</div>
-        <div class="trip-content">
-          <span class="trip-category">Heritage Train</span>
-          <h3 class="trip-title">Eastern & Oriental Express</h3>
-          <p class="trip-location">📍 Singapore → Bangkok</p>
-          <p class="trip-description">Journey through Malaysia and Thailand in colonial-era luxury. Teak-paneled cabins, observation car, and curated excursions to temples and markets.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">3-5 days</span>
-            <span class="trip-price">From $3,500</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="hotel">
-        <div class="trip-image">⛩️</div>
-        <div class="trip-content">
-          <span class="trip-category">Boutique Stay</span>
-          <h3 class="trip-title">Historic Ryokans of Kyoto</h3>
-          <p class="trip-location">📍 Japan - Kyoto & Kanazawa</p>
-          <p class="trip-description">Multi-generational family-run ryokans with kaiseki dining, onsen baths, and traditional tea ceremonies. Includes cultural experiences and temple visits.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">5-7 nights</span>
-            <span class="trip-price">From ¥280,000</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="road">
-        <div class="trip-image">🏍️</div>
-        <div class="trip-content">
-          <span class="trip-category">Classic Road Trip</span>
-          <h3 class="trip-title">Royal Enfield Rajasthan Circuit</h3>
-          <p class="trip-location">📍 India - Delhi to Jaipur</p>
-          <p class="trip-description">Vintage motorcycle journey through desert palaces and fort cities. Stay in heritage havelis, experience local festivals, guided by expert riders.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">8-12 days</span>
-            <span class="trip-price">From ₹185,000</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="cruise">
-        <div class="trip-image">🛥️</div>
-        <div class="trip-content">
-          <span class="trip-category">Vintage Cruise</span>
-          <h3 class="trip-title">Mekong River Colonial Cruise</h3>
-          <p class="trip-location">📍 Vietnam & Cambodia - Saigon to Siem Reap</p>
-          <p class="trip-description">French colonial-style riverboat with teak decks and colonial furnishings. Floating markets, Angkor temples, traditional village visits.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">7-10 days</span>
-            <span class="trip-price">From $2,800</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- AMERICAS -->
-    <div class="region-header">
-      <h2>🌎 Americas</h2>
-    </div>
-    <div class="trips-grid">
-      <article class="trip-card" data-category="road">
-        <div class="trip-image">🚙</div>
-        <div class="trip-content">
-          <span class="trip-category">Classic Road Trip</span>
-          <h3 class="trip-title">Route 66 Heritage Drive</h3>
-          <p class="trip-location">📍 USA - Chicago to Santa Monica</p>
-          <p class="trip-description">The ultimate American road trip in a classic convertible. Retro motels, vintage diners, neon signs, and roadside Americana from the Mother Road's golden era.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">10-14 days</span>
-            <span class="trip-price">From $4,500</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="train">
-        <div class="trip-image">🚂</div>
-        <div class="trip-content">
-          <span class="trip-category">Heritage Train</span>
-          <h3 class="trip-title">Andean Explorer</h3>
-          <p class="trip-location">📍 Peru - Cusco to Arequipa</p>
-          <p class="trip-description">South America's first luxury sleeper train through the Peruvian Andes. Observation car, gourmet dining, and excursions to Lake Titicaca and colonial cities.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">3-4 days</span>
-            <span class="trip-price">From $5,200</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="road">
-        <div class="trip-image">🚗</div>
-        <div class="trip-content">
-          <span class="trip-category">Classic Road Trip</span>
-          <h3 class="trip-title">New England Fall Foliage Tour</h3>
-          <p class="trip-location">📍 USA - Vermont, New Hampshire, Maine</p>
-          <p class="trip-description">Autumn colors, covered bridges, colonial inns, and maple farms. Drive scenic byways, stay in historic bed & breakfasts, visit craft breweries.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">5-8 days</span>
-            <span class="trip-price">From $2,400</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="hotel">
-        <div class="trip-image">🏨</div>
-        <div class="trip-content">
-          <span class="trip-category">Boutique Stay</span>
-          <h3 class="trip-title">Cuban Colonial Heritage Hotels</h3>
-          <p class="trip-location">📍 Cuba - Havana to Trinidad</p>
-          <p class="trip-description">Stay in beautifully restored colonial mansions and Art Deco hotels. Classic car tours, salsa lessons, cigar factory visits, and authentic paladares.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">6-9 nights</span>
-            <span class="trip-price">From $2,800</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- AFRICA -->
-    <div class="region-header">
-      <h2>🌍 Africa</h2>
-    </div>
-    <div class="trips-grid">
-      <article class="trip-card" data-category="train">
-        <div class="trip-image">🚂</div>
-        <div class="trip-content">
-          <span class="trip-category">Heritage Train</span>
-          <h3 class="trip-title">Rovos Rail Pride of Africa</h3>
-          <p class="trip-location">📍 South Africa - Cape Town to Pretoria</p>
-          <p class="trip-description">The world's most luxurious train journey through African landscapes. Edwardian-era elegance, game drives, wine tastings, and Victoria Falls options.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">3-15 days</span>
-            <span class="trip-price">From $3,500</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="safari">
-        <div class="trip-image">🦁</div>
-        <div class="trip-content">
-          <span class="trip-category">Vintage Safari</span>
-          <h3 class="trip-title">Classic Hemingway Safari</h3>
-          <p class="trip-location">📍 Kenya & Tanzania</p>
-          <p class="trip-description">Old-world safari experience with canvas tents, bush dinners, and vintage Land Rovers. Serengeti, Ngorongoro Crater, Maasai Mara - the golden age way.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">7-14 days</span>
-            <span class="trip-price">From $8,500</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="cruise">
-        <div class="trip-image">🛳️</div>
-        <div class="trip-content">
-          <span class="trip-category">Vintage Cruise</span>
-          <h3 class="trip-title">Nile River Dahabiya Cruise</h3>
-          <p class="trip-location">📍 Egypt - Luxor to Aswan</p>
-          <p class="trip-description">Traditional sailing boat with just 8-12 guests. Ancient temples, pharaonic tombs, and riverside villages. Private Egyptologist guide included.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">7-10 days</span>
-            <span class="trip-price">From $4,200</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="road">
-        <div class="trip-image">🚙</div>
-        <div class="trip-content">
-          <span class="trip-category">Classic Road Trip</span>
-          <h3 class="trip-title">Garden Route Classic Drive</h3>
-          <p class="trip-location">📍 South Africa - Cape Town to Port Elizabeth</p>
-          <p class="trip-description">Coastal route through wine regions, whale watching spots, and Garden Route National Park. Historic manor houses and seaside boutique hotels.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">7-10 days</span>
-            <span class="trip-price">From $3,200</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- OCEANIA -->
-    <div class="region-header">
-      <h2>🌏 Oceania</h2>
-    </div>
-    <div class="trips-grid">
-      <article class="trip-card" data-category="train">
-        <div class="trip-image">🚃</div>
-        <div class="trip-content">
-          <span class="trip-category">Heritage Train</span>
-          <h3 class="trip-title">The Ghan Expedition</h3>
-          <p class="trip-location">📍 Australia - Darwin to Adelaide</p>
-          <p class="trip-description">Epic transcontinental journey through the Red Centre. Off-train excursions to Uluru, Katherine Gorge, and Outback stations. Platinum service available.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">4-7 days</span>
-            <span class="trip-price">From AUD $4,500</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="road">
-        <div class="trip-image">🚗</div>
-        <div class="trip-content">
-          <span class="trip-category">Classic Road Trip</span>
-          <h3 class="trip-title">New Zealand South Island Circuit</h3>
-          <p class="trip-location">📍 New Zealand - Christchurch to Queenstown</p>
-          <p class="trip-description">Vintage campervan or classic car through fjords, alps, and vineyards. Historic gold rush towns, boutique lodges, farm stays, and wine country.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">10-14 days</span>
-            <span class="trip-price">From NZD $5,200</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-
-      <article class="trip-card" data-category="hotel">
-        <div class="trip-image">🏝️</div>
-        <div class="trip-content">
-          <span class="trip-category">Boutique Stay</span>
-          <h3 class="trip-title">Colonial-Era Hotels of Fiji</h3>
-          <p class="trip-location">📍 Fiji - Main Islands</p>
-          <p class="trip-description">Historic plantation estates and colonial-era resorts. Authentic island culture, diving, kava ceremonies, and South Pacific hospitality in vintage style.</p>
-          <div class="trip-meta">
-            <span class="trip-duration">5-7 nights</span>
-            <span class="trip-price">From $3,400</span>
-          </div>
-          <a href="#book" class="trip-link">View Details & Book →</a>
-        </div>
-      </article>
-    </div>
-
-    <section class="section" style="text-align: center; padding: 4rem 0; background: var(--vintage-cream); border-radius: 12px; margin: 3rem 0;">
-      <div class="container">
-        <h2 style="color: var(--vintage-dark); margin-bottom: 1rem;">Can't Find Your Perfect Trip?</h2>
-        <p style="color: var(--vintage-brown); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Our concierge team can create custom vintage travel experiences tailored to your preferences, budget, and timeline.</p>
-        <a href="/#newsletter" class="btn btn-primary" style="display: inline-block;">Request Custom Itinerary</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div>
-        <p class="brand-footer">Vintage<span>Trips</span></p>
-        <p>© <span id="year"></span> VintageTrips.com. All rights reserved.</p>
-      </div>
-      <nav aria-label="Footer navigation">
-        <a href="/privacy.html">Privacy</a> · 
-        <a href="/terms.html">Terms</a> · 
-        <a href="#top">Back to Top ↑</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    // Filter functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const tripCards = document.querySelectorAll('.trip-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.dataset.filter;
-
-        // Filter cards
-        tripCards.forEach(card => {
-          if (filter === 'all' || card.dataset.category === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+      // Filter cards
+      tripCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
       });
     });
-
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  });
+</script>
