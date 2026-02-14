@@ -121,35 +121,6 @@ description: Tell us about your dream vintage journey and our concierge team wil
     opacity: 0.6;
     cursor: not-allowed;
   }
-  .thank-you {
-    display: none;
-    text-align: center;
-    padding: 3rem;
-  }
-  .thank-you.active {
-    display: block;
-  }
-  .thank-you h2 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-  }
-  .thank-you p {
-    color: var(--secondary);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-  .error-message {
-    background: #fee;
-    border: 2px solid #c33;
-    color: #c33;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    display: none;
-  }
-  .error-message.active {
-    display: block;
-  }
   .newsletter-consent {
     background: var(--bg);
     padding: 1.2rem;
@@ -183,14 +154,11 @@ description: Tell us about your dream vintage journey and our concierge team wil
     <div id="prefilled-trip-notice" class="prefilled-trip" style="display: none;">
       <p>✨ Enquiring about: <strong id="trip-name-display"></strong></p>
     </div>
-
-    <div class="error-message" id="error-message">
-      <strong>Submission Error:</strong> Please check your internet connection and try again. If the problem persists, email us directly at <a href="mailto:info@vintagetrips.com">info@vintagetrips.com</a>
-    </div>
     
     <form id="itinerary-form" action="https://formsubmit.co/info@vintagetrips.com" method="POST">
       <!-- FormSubmit Configuration -->
       <input type="hidden" name="_subject" value="New Custom Itinerary Request - VintageTrips">
+      <input type="hidden" name="_next" value="https://www.vintagetrips.com/?submitted=true">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="text" name="_honey" style="display:none">
@@ -279,27 +247,27 @@ description: Tell us about your dream vintage journey and our concierge team wil
         <label>What type of vintage experience interests you? <span class="required">*</span></label>
         <div class="checkbox-group">
           <div class="checkbox-item">
-            <input type="checkbox" id="train" name="interests[]" value="Heritage Trains">
+            <input type="checkbox" id="train" name="interests" value="Heritage Trains">
             <label for="train">Heritage Trains</label>
           </div>
           <div class="checkbox-item">
-            <input type="checkbox" id="road" name="interests[]" value="Classic Road Trips">
+            <input type="checkbox" id="road" name="interests" value="Classic Road Trips">
             <label for="road">Classic Road Trips</label>
           </div>
           <div class="checkbox-item">
-            <input type="checkbox" id="cruise" name="interests[]" value="Vintage Cruises">
+            <input type="checkbox" id="cruise" name="interests" value="Vintage Cruises">
             <label for="cruise">Vintage Cruises</label>
           </div>
           <div class="checkbox-item">
-            <input type="checkbox" id="hotel" name="interests[]" value="Boutique Hotels">
+            <input type="checkbox" id="hotel" name="interests" value="Boutique Hotels">
             <label for="hotel">Boutique Hotels</label>
           </div>
           <div class="checkbox-item">
-            <input type="checkbox" id="safari" name="interests[]" value="Vintage Safaris">
+            <input type="checkbox" id="safari" name="interests" value="Vintage Safaris">
             <label for="safari">Vintage Safaris</label>
           </div>
           <div class="checkbox-item">
-            <input type="checkbox" id="culture" name="interests[]" value="Cultural Experiences">
+            <input type="checkbox" id="culture" name="interests" value="Cultural Experiences">
             <label for="culture">Cultural Experiences</label>
           </div>
         </div>
@@ -320,7 +288,7 @@ description: Tell us about your dream vintage journey and our concierge team wil
       <!-- Newsletter Consent -->
       <div class="newsletter-consent">
         <label style="display: flex; align-items: start; gap: 0.5rem; cursor: pointer; font-weight: normal; margin: 0;">
-          <input type="checkbox" name="newsletter_consent" id="newsletter" style="margin-top: 0.2rem;">
+          <input type="checkbox" name="newsletter_consent" id="newsletter" value="yes" style="margin-top: 0.2rem;">
           <span style="color: var(--text);">Send me occasional travel inspiration and exclusive offers (1-2 emails per month, unsubscribe anytime)</span>
         </label>
       </div>
@@ -334,15 +302,6 @@ description: Tell us about your dream vintage journey and our concierge team wil
         By submitting, you agree to our <a href="{{ site.baseurl }}/privacy.html" style="color: var(--accent);">Privacy Policy</a> and <a href="{{ site.baseurl }}/terms.html" style="color: var(--accent);">Terms & Conditions</a>.
       </p>
     </form>
-    
-    <!-- Thank You Message (Hidden by default) -->
-    <div class="thank-you" id="thank-you">
-      <h2>✨ Thank You!</h2>
-      <p>Your custom itinerary request has been received. Our concierge team will review your preferences and send you a personalized proposal within 48 hours.</p>
-      <p>A confirmation email has been sent to <strong id="submitted-email"></strong></p>
-      <a href="{{ site.baseurl }}/" class="btn btn-primary">Return to Homepage</a>
-      <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary" style="margin-left: 1rem;">Browse More Trips</a>
-    </div>
   </div>
   
   <section class="section" style="text-align: center; padding: 3rem 0;">
@@ -387,54 +346,5 @@ description: Tell us about your dream vintage journey and our concierge team wil
         destinationField.value = tripName;
       }
     }
-  });
-
-  // Form submission handling
-  const form = document.getElementById('itinerary-form');
-  const formWrapper = document.getElementById('form-wrapper');
-  const thankYou = document.getElementById('thank-you');
-  const errorMessage = document.getElementById('error-message');
-  const submitBtn = document.getElementById('submit-btn');
-  
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Disable submit button
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    
-    // Hide any previous errors
-    errorMessage.classList.remove('active');
-    
-    // Get email for confirmation
-    const email = document.getElementById('email').value;
-    
-    // Submit form via fetch to handle errors
-    const formData = new FormData(form);
-    
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        // Success - show thank you
-        document.getElementById('submitted-email').textContent = email;
-        form.style.display = 'none';
-        thankYou.classList.add('active');
-      } else {
-        throw new Error('Form submission failed');
-      }
-    })
-    .catch(error => {
-      // Error - show error message and re-enable form
-      console.error('Submission error:', error);
-      errorMessage.classList.add('active');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Request →';
-    });
   });
 </script>
