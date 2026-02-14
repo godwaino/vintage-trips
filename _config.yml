@@ -22,7 +22,7 @@ defaults:
       path: ""
       type: "trips"
     values:
-      layout: "trip"
+      layout: "default"
 
 # Exclude from processing
 exclude:
