@@ -54,6 +54,18 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
     font-size: 1rem;
     color: var(--bg);
   }
+  .coming-soon-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 0.5rem;
+  }
   /* Fix excessive spacing between sections */
   .section.container {
     padding: 3rem 0;
@@ -86,20 +98,20 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
 <header class="site-header" id="top">
   <section class="hero container">
     <div class="hero-copy">
-      <p class="eyebrow">Cinematic travel. Real concierge support.</p>
-      <h1>A Rich, Colorful Travel Experience Before You Even Book.</h1>
-      <p>From velvet-car rail journeys to sunlit coastal loops, VintageTrips brings old-world romance with modern premium planning.</p>
+      <p class="eyebrow">Cinematic travel inspiration</p>
+      <h1>Discover Vintage Travel Experiences & Itineraries</h1>
+      <p>From velvet-car rail journeys to sunlit coastal loops, explore our curated collection of nostalgic travel guides and itineraries. Concierge booking service launching soon.</p>
       <div class="hero-cta">
-        <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary">Request Custom Itinerary</a>
-        <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">Browse All Trips</a>
+        <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary">Join Waitlist</a>
+        <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">Browse Travel Guides</a>
       </div>
     </div>
     <aside class="hero-panel gradient-card">
-      <h3>Why travelers choose us</h3>
+      <h3>What's coming <span class="coming-soon-badge">Spring 2026</span></h3>
       <ul>
         <li>✨ Boutique stays + iconic routes</li>
         <li>🎯 Handcrafted pacing, not rushed tours</li>
-        <li>📞 24/7 human concierge</li>
+        <li>📞 Personal concierge planning</li>
       </ul>
     </aside>
   </section>
@@ -107,7 +119,7 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
 
 <section class="section container" id="featured">
   <div class="section-header">
-    <p class="eyebrow">Featured experiences</p>
+    <p class="eyebrow">Featured travel guides</p>
     <h2>Signature Journeys</h2>
   </div>
   <div class="cards three-up">
@@ -128,7 +140,7 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
     </article>
   </div>
   <div style="text-align: center; margin-top: 2rem;">
-    <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">View All 25+ Trips</a>
+    <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">View All 25+ Travel Guides</a>
   </div>
 </section>
 
@@ -139,24 +151,24 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
   </div>
   <div class="faq-list">
     <details>
-      <summary>Do you customize trips?</summary>
-      <p>Yes, every itinerary can be personalized by pace, style, and region. Our concierge team works with you to create the perfect vintage travel experience tailored to your preferences.</p>
+      <summary>When will the concierge service launch?</summary>
+      <p>We're launching our full concierge booking service in Spring 2026. Join our waitlist to be notified when we go live and receive exclusive early access offers.</p>
+    </details>
+    <details>
+      <summary>Can I use these travel guides now?</summary>
+      <p>Absolutely! All our detailed travel guides and itineraries are available to read, save, and use for planning your own vintage adventures right now.</p>
+    </details>
+    <details>
+      <summary>What will the concierge service include?</summary>
+      <p>Our upcoming service will include personalized itinerary planning, accommodation bookings, transportation arrangements, 24/7 support, and curated vintage travel experiences tailored to your preferences.</p>
+    </details>
+    <details>
+      <summary>How can I stay updated?</summary>
+      <p>Join our newsletter below to receive travel inspiration now, plus be the first to know when our booking service launches with exclusive early bird offers.</p>
     </details>
     <details>
       <summary>Is this premium-only?</summary>
-      <p>Mostly premium, with selected mid-range curated options available. We believe in quality over quantity and handpick every accommodation and experience.</p>
-    </details>
-    <details>
-      <summary>How far ahead should I book?</summary>
-      <p>3-6 months is ideal for heritage rail and boutique properties. Popular routes like the Venice Simplon-Orient-Express can require even earlier booking.</p>
-    </details>
-    <details>
-      <summary>What's included in your packages?</summary>
-      <p>Our packages include accommodations, transportation, 24/7 concierge support, curated experiences, and detailed itineraries. Meals and optional activities can be added based on your preferences.</p>
-    </details>
-    <details>
-      <summary>Do you offer group travel?</summary>
-      <p>Yes! We can arrange intimate group experiences for 4-12 travelers, perfect for friends, families, or special celebrations.</p>
+      <p>We'll offer mostly premium experiences with selected mid-range curated options. We believe in quality over quantity and handpick every accommodation and experience.</p>
     </details>
   </div>
 </section>
@@ -165,24 +177,23 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
   <div class="container newsletter-wrap">
     <div>
       <p class="eyebrow">Stay inspired</p>
-      <h2>Get Travel Ideas & Exclusive Offers</h2>
-      <p>Curated itineraries, seasonal routes, and insider tips delivered to your inbox.</p>
+      <h2>Join Our Launch Waitlist</h2>
+      <p>Get travel inspiration now, plus be first to know when our concierge service launches in Spring 2026.</p>
       <p class="newsletter-promise">📧 1–2 emails per month · 🔒 Never sold or shared · ✉️ Unsubscribe anytime</p>
     </div>
     <div>
       <form class="newsletter" id="signup-form" action="https://formsubmit.co/info@vintagetrips.com" method="POST">
-        <input type="hidden" name="_subject" value="New VintageTrips Newsletter Signup">
+        <input type="hidden" name="_subject" value="New VintageTrips Waitlist Signup">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <!-- Honeypot spam protection -->
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         
         <label for="email" class="sr-only">Email address</label>
         <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
-        <button type="submit" class="btn btn-primary" id="newsletter-btn">Subscribe</button>
+        <button type="submit" class="btn btn-primary" id="newsletter-btn">Join Waitlist</button>
       </form>
       <div class="newsletter-success" id="newsletter-success" role="status" aria-live="polite">
-        <strong>✅ Success!</strong> Check your email to confirm your subscription. Welcome to the VintageTrips community!
+        <strong>✅ Success!</strong> You're on the list! Check your email to confirm. Welcome to the VintageTrips community!
       </div>
     </div>
   </div>
@@ -199,7 +210,7 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
       e.preventDefault();
       
       newsletterBtn.disabled = true;
-      newsletterBtn.textContent = 'Subscribing...';
+      newsletterBtn.textContent = 'Joining...';
       
       const formData = new FormData(newsletterForm);
       
@@ -222,7 +233,7 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
         console.error('Newsletter error:', error);
         alert('There was an error. Please try again or email us directly at info@vintagetrips.com');
         newsletterBtn.disabled = false;
-        newsletterBtn.textContent = 'Subscribe';
+        newsletterBtn.textContent = 'Join Waitlist';
       });
     });
   }
