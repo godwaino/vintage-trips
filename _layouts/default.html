@@ -8,8 +8,23 @@
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   
-  <!-- Favicon - Airplane Icon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:image" content="{{ site.url }}/VintageTrips-Logo-Light.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ site.url }}/VintageTrips-Logo-Light.png">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   
   <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
   <script src="{{ site.baseurl }}/script.js" defer></script>
