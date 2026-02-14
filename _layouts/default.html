@@ -7,6 +7,10 @@
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  
+  <!-- Favicon - Airplane Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+  
   <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
   <script src="{{ site.baseurl }}/script.js" defer></script>
   {% seo %}
