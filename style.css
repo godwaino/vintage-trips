@@ -65,24 +65,49 @@ body {
   z-index: 100;
 }
 
+/* Enhanced Brand/Logo Styling */
 .brand { 
   color: var(--surface); 
   text-decoration: none; 
   font-weight: 700; 
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: 'Georgia', serif;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand::before {
+  content: '✈';
+  font-size: 1.8rem;
+  color: var(--accent);
+  display: inline-block;
+  transform: rotate(-45deg);
   transition: var(--transition);
 }
 
 .brand:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
   color: var(--accent);
+}
+
+.brand:hover::before {
+  transform: rotate(-45deg) translateX(3px);
+  color: var(--surface);
 }
 
 .brand span { 
   color: var(--accent); 
   font-style: italic;
+  background: linear-gradient(135deg, var(--accent) 0%, #d4a373 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
 }
 
 .nav-links { 
@@ -548,6 +573,14 @@ h1 {
     grid-template-columns: 1fr; 
   }
   
+  .brand {
+    font-size: 1.6rem;
+  }
+  
+  .brand::before {
+    font-size: 1.5rem;
+  }
+  
   .menu-toggle { 
     display: block; 
     border: 1px solid rgba(255, 248, 238, 0.4); 
@@ -611,6 +644,14 @@ h1 {
   
   .site-header {
     padding: 1.5rem 0 3rem;
+  }
+  
+  .brand {
+    font-size: 1.4rem;
+  }
+  
+  .brand::before {
+    font-size: 1.3rem;
   }
   
   h1 {
