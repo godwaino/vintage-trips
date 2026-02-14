@@ -66,6 +66,31 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
     letter-spacing: 0.5px;
     margin-left: 0.5rem;
   }
+  /* Image cards for featured trips */
+  .rich-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+  }
+  .card-image-placeholder {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 8px 8px 0 0;
+    margin: -1.5rem -1.5rem 1rem -1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--surface);
+    font-size: 3rem;
+    opacity: 0.8;
+  }
   /* Fix excessive spacing between sections */
   .section.container {
     padding: 3rem 0;
@@ -124,16 +149,25 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
   </div>
   <div class="cards three-up">
     <article class="card rich-card animate-on-scroll">
+      <!-- Replace this placeholder with: Venice Simplon-Orient-Express luxury train exterior -->
+      <div class="card-image-placeholder">🚂</div>
+      <!-- <img src="/images/orient-express.jpg" alt="Venice Simplon-Orient-Express" class="card-image"> -->
       <h3>Grand Continental Sleeper</h3>
       <p>Paris → Venice → Vienna aboard the Venice Simplon-Orient-Express with luxe rail cabins and private city hosts.</p>
       <a href="{{ site.baseurl }}/paris-venice-vienna-rail.html" class="card-link">Learn more →</a>
     </article>
     <article class="card rich-card animate-on-scroll">
+      <!-- Replace this placeholder with: Classic car on Route 66 with desert landscape -->
+      <div class="card-image-placeholder">🚗</div>
+      <!-- <img src="/images/route-66.jpg" alt="Route 66 Classic Car" class="card-image"> -->
       <h3>Route 66 Heritage Drive</h3>
       <p>A colorful Americana road odyssey with retro motels, classic diners, and local storytellers from Chicago to Santa Monica.</p>
       <a href="{{ site.baseurl }}/route-66-luxury-road-trip.html" class="card-link">Learn more →</a>
     </article>
     <article class="card rich-card animate-on-scroll">
+      <!-- Replace this placeholder with: Traditional Japanese ryokan with mountain view -->
+      <div class="card-image-placeholder">⛩️</div>
+      <!-- <img src="/images/ryokan-japan.jpg" alt="Traditional Japanese Ryokan" class="card-image"> -->
       <h3>Historic Ryokans of Japan</h3>
       <p>Tokyo to Kyoto via traditional inns. Onsen baths, kaiseki feasts, temple gardens, and tea ceremonies.</p>
       <a href="{{ site.baseurl }}/japan-vintage-hotels-guide.html" class="card-link">Learn more →</a>
