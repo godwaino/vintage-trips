@@ -6,7 +6,7 @@
 
 ### Core Requirements Completed
 
-**✅ Trust + UX**
+**✅ Trust + UX** 
 - Zero dead navigation links (all routes verified)
 - Consistent navigation across all pages (Jekyll includes)
 - Clear booking path: Browse Trips → Request Itinerary Form → Thank You
