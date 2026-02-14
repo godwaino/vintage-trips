@@ -29,6 +29,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - NAVIGATION_TEST.md
 
 # Markdown
 markdown: kramdown
