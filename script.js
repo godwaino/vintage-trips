@@ -1,130 +1,152 @@
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+/* ============================================================
+   VintageTrips – Main JavaScript
+   ============================================================ */
 
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    const isOpen = navLinks.classList.contains('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
+(function () {
+  'use strict';
+
+  /* ── Scroll-aware sticky nav ─────────────────────────────── */
+  const globalNav = document.getElementById('global-nav');
+
+  if (globalNav) {
+    const onScroll = () => {
+      globalNav.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // initialise
+  }
+
+  /* ── Active nav link highlighting ───────────────────────── */
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+
+  navLinks.forEach(link => {
+    const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '') || '/';
+    if (linkPath === currentPath) {
+      link.setAttribute('aria-current', 'page');
+    }
   });
-}
 
-// Close mobile menu when clicking a link
-if (navLinks) {
-  const links = navLinks.querySelectorAll('a');
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+  /* ── Mobile menu toggle ──────────────────────────────────── */
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navList    = document.querySelector('.nav-links');
+
+  if (menuToggle && navList) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navList.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close when a link is clicked
+    navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.nav') && navList.classList.contains('open')) {
+        navList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      }
+    });
+
+    // Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navList.classList.contains('open')) {
+        navList.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+        menuToggle.focus();
+      }
+    });
+  }
+
+  /* ── Scroll-to-top button ────────────────────────────────── */
+  const scrollTopBtn = document.getElementById('scroll-top');
+
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ── Scroll-reveal animation ─────────────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal, .card, .section-header');
+
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+    );
+
+    revealEls.forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: show everything immediately
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  /* ── Smooth scroll for anchor links ─────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
-}
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.nav') && navLinks.classList.contains('open')) {
-    navLinks.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
-});
+  /* ── Footer year ─────────────────────────────────────────── */
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Form handling
-const signupForm = document.getElementById('signup-form');
-const formMessage = document.getElementById('form-message');
+  /* ── Newsletter form (legacy fallback) ───────────────────── */
+  const signupForm   = document.getElementById('signup-form');
+  const formMessage  = document.getElementById('form-message');
 
-if (signupForm) {
-  signupForm.addEventListener('submit', async (e) => {
-    // Only prevent default if not using Netlify forms
-    if (!signupForm.hasAttribute('data-netlify')) {
-      e.preventDefault();
-      
-      const email = signupForm.email.value;
-      
-      // Basic email validation
-      if (!email || !email.includes('@')) {
-        showMessage('Please enter a valid email address.', 'error');
-        return;
+  if (signupForm && !signupForm.hasAttribute('data-handled')) {
+    signupForm.addEventListener('submit', async e => {
+      if (!signupForm.hasAttribute('data-netlify')) {
+        e.preventDefault();
+        const email = signupForm.email?.value || '';
+        if (!email || !email.includes('@')) {
+          showMsg('Please enter a valid email address.', 'error');
+          return;
+        }
+        showMsg('Thank you! Check your inbox for confirmation.', 'success');
+        signupForm.reset();
       }
-      
-      // Simulate form submission
-      showMessage('Thank you! Check your inbox for confirmation.', 'success');
-      signupForm.reset();
-    } else {
-      // Let Netlify handle the submission
-      showMessage('Submitting...', 'info');
-    }
-  });
-}
-
-function showMessage(message, type = 'info') {
-  if (formMessage) {
-    formMessage.textContent = message;
-    formMessage.style.color = type === 'error' ? '#dc2626' : type === 'success' ? '#059669' : '#3d2db8';
-    
-    if (type === 'success') {
-      setTimeout(() => {
-        formMessage.textContent = '';
-      }, 5000);
-    }
+    });
   }
-}
 
-// Set current year in footer
-const yearElement = document.getElementById('year');
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return;
-    
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-
-// Add scroll-based animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, observerOptions);
-
-// Observe cards and sections for animation
-document.addEventListener('DOMContentLoaded', () => {
-  const animatedElements = document.querySelectorAll('.card, .section-header');
-  animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
-  });
-});
-
-// Add keyboard navigation support
-document.addEventListener('keydown', (e) => {
-  // Escape key closes mobile menu
-  if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-    navLinks.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.focus();
+  function showMsg(msg, type) {
+    if (!formMessage) return;
+    formMessage.textContent = msg;
+    const colours = { error: '#dc2626', success: '#059669', info: '#3d2db8' };
+    formMessage.style.color = colours[type] || colours.info;
+    if (type === 'success') setTimeout(() => { formMessage.textContent = ''; }, 5000);
   }
-});
+
+})();

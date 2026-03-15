@@ -6,94 +6,50 @@ keywords: travel guides, heritage travel planning, vintage travel tips, luxury t
 ---
 
 <style>
-  .guides-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    padding: 4rem 0;
-    color: var(--surface);
+  .guides-hero { padding: 4rem 0 3.5rem; }
+  .guides-content { padding: 4rem 0; }
+  .guide-category { margin-bottom: 4rem; }
+
+  .guides-cta {
     text-align: center;
-  }
-  .guides-hero h1 {
-    color: var(--surface);
-    margin-bottom: 1rem;
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-  .guides-hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-    color: var(--bg);
-    line-height: 1.8;
-  }
-  .guides-content {
-    padding: 4rem 0;
-  }
-  .guide-category {
-    margin-bottom: 4rem;
-  }
-  .guide-category h2 {
-    color: var(--primary);
-    margin-bottom: 2rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 3px solid var(--accent);
-  }
-  .guide-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .guide-card {
+    padding: 3.5rem;
     background: var(--surface);
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    padding: 1.8rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: block;
-    color: var(--text);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+    box-shadow: var(--shadow-sm);
   }
-  .guide-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
-    box-shadow: 0 12px 32px rgba(31, 42, 68, 0.15);
-  }
-  .guide-card h3 {
-    color: var(--primary);
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
-  }
-  .guide-card p {
-    color: var(--secondary);
-    line-height: 1.7;
-    font-size: 0.95rem;
-  }
+
+  .guides-cta h3  { color: var(--primary); margin-bottom: 0.75rem; }
+  .guides-cta p   { color: var(--text-muted); margin-inline: auto; max-width: 52ch; margin-bottom: 2rem; }
 </style>
 
-<header class="guides-hero">
+<header class="page-hero guides-hero" id="top">
   <div class="container">
-    <p class="eyebrow">📚 EXPERT RESOURCES</p>
+    <p class="eyebrow">Expert Resources</p>
     <h1>Travel Planning Guides</h1>
-    <p>Everything you need to plan the perfect vintage journey. From timing and routes to philosophy and inspiration.</p>
+    <p style="max-width:660px;margin-inline:auto;margin-top:1rem;line-height:1.8;">Everything you need to plan the perfect vintage journey — from timing and routes to philosophy and inspiration.</p>
   </div>
 </header>
 
 <div class="container guides-content">
-  
+
   <div class="guide-category">
     <h2>🚂 By Experience Type</h2>
     <div class="guide-grid">
-      <a href="{{ site.baseurl }}/vintage-train-routes-europe.html" class="guide-card">
+      <a href="{{ site.baseurl }}/vintage-train-routes-europe.html" class="guide-card reveal">
         <h3>🚂 Best Vintage Train Routes in Europe</h3>
         <p>Venice Simplon-Orient-Express, Rovos Rail, and heritage sleeper trains across the continent.</p>
       </a>
-      <a href="{{ site.baseurl }}/route-66-luxury-road-trip.html" class="guide-card">
+      <a href="{{ site.baseurl }}/route-66-luxury-road-trip.html" class="guide-card reveal">
         <h3>🚗 Luxury Route 66 Road Trip</h3>
         <p>Complete guide to the Mother Road: vintage motels, classic diners, state-by-state itinerary, timing, and budget.</p>
       </a>
-      <a href="{{ site.baseurl }}/new-england-fall-roadtrip.html" class="guide-card">
+      <a href="{{ site.baseurl }}/new-england-fall-roadtrip.html" class="guide-card reveal">
         <h3>🍂 New England Fall Road Trip</h3>
         <p>Peak foliage timing, covered bridges, historic inns, and the perfect 7-day autumn itinerary.</p>
       </a>
-      <a href="{{ site.baseurl }}/scenic-coastal-voyages.html" class="guide-card">
+      <a href="{{ site.baseurl }}/scenic-coastal-voyages.html" class="guide-card reveal">
         <h3>⛵ Scenic Coastal Voyages</h3>
         <p>Greek gulets, Nile dahabiyas, Mekong cruises, Norwegian fjords, and intimate small-ship sailing.</p>
       </a>
@@ -103,15 +59,15 @@ keywords: travel guides, heritage travel planning, vintage travel tips, luxury t
   <div class="guide-category">
     <h2>🗺️ By Destination</h2>
     <div class="guide-grid">
-      <a href="{{ site.baseurl }}/japan-vintage-hotels-guide.html" class="guide-card">
-        <h3>🏯 Vintage Hotels & Ryokans in Japan</h3>
+      <a href="{{ site.baseurl }}/japan-vintage-hotels-guide.html" class="guide-card reveal">
+        <h3>🏯 Vintage Hotels &amp; Ryokans in Japan</h3>
         <p>Historic ryokans, onsen etiquette, kaiseki dining, and cultural immersion in Tokyo, Kyoto, and beyond.</p>
       </a>
-      <a href="{{ site.baseurl }}/paris-venice-vienna-rail.html" class="guide-card">
+      <a href="{{ site.baseurl }}/paris-venice-vienna-rail.html" class="guide-card reveal">
         <h3>🚄 Paris-Venice-Vienna Rail Journey</h3>
         <p>Grand European sleeper train experience with city guides and luxury hotel recommendations.</p>
       </a>
-      <a href="{{ site.baseurl }}/kyoto-retro-cultural-itinerary.html" class="guide-card">
+      <a href="{{ site.baseurl }}/kyoto-retro-cultural-itinerary.html" class="guide-card reveal">
         <h3>⛩️ Kyoto Retro Cultural Itinerary</h3>
         <p>Temple gardens, tea ceremonies, geisha districts, and traditional craft workshops.</p>
       </a>
@@ -121,9 +77,13 @@ keywords: travel guides, heritage travel planning, vintage travel tips, luxury t
   <div class="guide-category">
     <h2>💑 Special Occasions</h2>
     <div class="guide-grid">
-      <a href="{{ site.baseurl }}/retro-honeymoon-itineraries.html" class="guide-card">
+      <a href="{{ site.baseurl }}/retro-honeymoon-itineraries.html" class="guide-card reveal">
         <h3>💑 Retro-Inspired Honeymoon Itineraries</h3>
         <p>Six curated honeymoon journeys: European trains, Greek sailing, Japanese ryokans, and romantic escapes.</p>
+      </a>
+      <a href="{{ site.baseurl }}/how-to-plan-retro-honeymoon.html" class="guide-card reveal">
+        <h3>💍 How to Plan a Retro Honeymoon</h3>
+        <p>Step-by-step guide to crafting the perfect vintage honeymoon — timelines, budgets, and destination picks.</p>
       </a>
     </div>
   </div>
@@ -131,20 +91,28 @@ keywords: travel guides, heritage travel planning, vintage travel tips, luxury t
   <div class="guide-category">
     <h2>🧭 Planning Essentials</h2>
     <div class="guide-grid">
-      <a href="{{ site.baseurl }}/best-time-for-heritage-travel.html" class="guide-card">
+      <a href="{{ site.baseurl }}/best-time-for-heritage-travel.html" class="guide-card reveal">
         <h3>🗓️ Best Time for Heritage Travel</h3>
         <p>Month-by-month seasonal guide, regional timing, shoulder seasons, and booking timeline.</p>
       </a>
-      <a href="{{ site.baseurl }}/luxury-slow-travel-guide.html" class="guide-card">
+      <a href="{{ site.baseurl }}/luxury-slow-travel-guide.html" class="guide-card reveal">
         <h3>🌍 Luxury Slow Travel Philosophy</h3>
-        <p>Why slow travel is the ultimate luxury. Quality over quantity, meaningful experiences, sample itineraries.</p>
+        <p>Why slow travel is the ultimate luxury — quality over quantity, meaningful experiences, sample itineraries.</p>
+      </a>
+      <a href="{{ site.baseurl }}/what-to-pack-vintage-rail-journey.html" class="guide-card reveal">
+        <h3>🧳 What to Pack for a Vintage Rail Journey</h3>
+        <p>Essential packing list for heritage train travel — attire, accessories, and practical gear.</p>
+      </a>
+      <a href="{{ site.baseurl }}/how-far-in-advance-book-heritage-trains.html" class="guide-card reveal">
+        <h3>📅 How Far in Advance to Book Heritage Trains</h3>
+        <p>Booking windows, cancellation policies, and strategies for the most sought-after routes.</p>
       </a>
     </div>
   </div>
 
-  <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: var(--surface); border-radius: 12px; border: 2px solid var(--border);">
-    <h3 style="color: var(--primary); margin-bottom: 1rem;">Ready to Start Planning?</h3>
-    <p style="color: var(--secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Tell us about your dream vintage journey and we'll craft a personalized itinerary with our concierge expertise.</p>
+  <div class="guides-cta">
+    <h3>Ready to Start Planning?</h3>
+    <p>Tell us about your dream vintage journey and we&rsquo;ll craft a personalised itinerary with our concierge expertise.</p>
     <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary">Request Custom Itinerary</a>
   </div>
 

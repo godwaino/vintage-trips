@@ -1,12 +1,19 @@
-<header class="site-header" id="top">
-  <nav class="nav container glass">
-    <a href="{{ site.baseurl }}/" class="brand" aria-label="VintageTrips Home">Vintage<span>Trips</span></a>
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <ul class="nav-links">
-      <li><a href="{{ site.baseurl }}/trips.html">Trips</a></li>
-      <li><a href="{{ site.baseurl }}/guides.html">Guides</a></li>
-      <li><a href="{{ site.baseurl }}/request-itinerary.html">Request Itinerary</a></li>
-      <li><a href="{{ site.baseurl }}/#faq">FAQ</a></li>
-    </ul>
-  </nav>
-</header>
+<div class="global-nav" id="global-nav">
+  <div class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="{{ site.baseurl }}/" class="brand" aria-label="VintageTrips Home">
+        <span class="brand-icon" aria-hidden="true">✈</span>
+        Vintage<span>Trips</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="{{ site.baseurl }}/trips.html">Trips</a></li>
+        <li><a href="{{ site.baseurl }}/guides.html">Guides</a></li>
+        <li><a href="{{ site.baseurl }}/#faq">FAQ</a></li>
+        <li><a href="{{ site.baseurl }}/request-itinerary.html" class="nav-cta">Join Waitlist</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
