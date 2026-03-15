@@ -6,195 +6,373 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
 ---
 
 <style>
-  /* Homepage specific styles */
+  /* ── Homepage: Site Header Override ─────────────────────── */
   .site-header {
-    padding: 2rem 0 5rem;
+    padding: 2rem 0 6rem;
   }
-  .hero {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
+
+  /* ── Hero ────────────────────────────────────────────────── */
+  .hero-badge {
+    display: inline-flex;
     align-items: center;
+    gap: 0.5rem;
+    background: rgba(181,130,10,0.15);
+    border: 1px solid rgba(181,130,10,0.35);
+    color: #e8c060;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
   }
-  .hero-copy p {
-    max-width: 60ch;
-    font-size: 1.05rem;
-    color: var(--bg);
-    line-height: 1.8;
+
+  .hero-badge::before {
+    content: '✦';
+    font-size: 0.6rem;
   }
-  .hero-cta {
+
+  /* ── Stats Strip ─────────────────────────────────────────── */
+  .stats-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1.25rem 1rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  /* ── Featured Cards ──────────────────────────────────────── */
+  .rich-card .card-body {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+
+  /* ── How It Works ────────────────────────────────────────── */
+  .how-it-works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    position: relative;
+  }
+
+  .how-it-works-grid::before {
+    content: '';
+    position: absolute;
+    top: 2.5rem;
+    left: calc(33.33% - 1px);
+    right: calc(33.33% - 1px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+    opacity: 0.5;
+  }
+
+  .step {
+    text-align: center;
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: white;
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin: 0 auto 1.2rem;
+    box-shadow: 0 4px 16px rgba(181,130,10,0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .step h3 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .step p {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    margin-inline: auto;
+    max-width: 26ch;
+  }
+
+  /* ── Newsletter promise ──────────────────────────────────── */
+  .newsletter-promise {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
     flex-wrap: wrap;
   }
-  .gradient-card {
-    background: linear-gradient(135deg, 
-      rgba(255, 248, 238, 0.25) 0%, 
-      rgba(216, 205, 190, 0.15) 100%);
-    border: 2px solid rgba(184, 134, 11, 0.4);
-    border-radius: 12px;
-    padding: 1.8rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(31, 42, 68, 0.2);
+
+  .newsletter-promise span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
   }
-  .gradient-card h3 {
-    margin-bottom: 1.2rem;
+
+  /* ── CTA banner ──────────────────────────────────────────── */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: var(--radius-lg);
+    padding: 4rem;
+    text-align: center;
     color: var(--surface);
-    font-size: 1.3rem;
-    font-weight: 500;
-  }
-  .gradient-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  .gradient-card li {
-    padding: 0.6rem 0;
-    font-size: 1rem;
-    color: var(--bg);
-  }
-  .coming-soon-badge {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-left: 0.5rem;
-  }
-  /* Image cards for featured trips */
-  .rich-card {
     position: relative;
     overflow: hidden;
   }
-  .card-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-    margin: -1.5rem -1.5rem 1rem -1.5rem;
+
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(181,130,10,0.2) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .card-image-placeholder {
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    border-radius: 8px 8px 0 0;
-    margin: -1.5rem -1.5rem 1rem -1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .cta-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(255,249,240,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-banner h2 {
     color: var(--surface);
-    font-size: 3rem;
-    opacity: 0.8;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
   }
-  /* Fix excessive spacing between sections */
-  .section.container {
-    padding: 3rem 0;
+
+  .cta-banner p {
+    color: rgba(240,232,213,0.85);
+    font-size: 1.05rem;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    max-width: 50ch;
+    position: relative;
+    z-index: 1;
   }
-  .newsletter-success {
-    background: #d4edda;
-    border: 2px solid #28a745;
-    color: #155724;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-top: 1rem;
-    display: none;
-  }
-  .newsletter-success.active {
-    display: block;
-  }
-  .newsletter-promise {
-    font-size: 0.85rem;
-    color: var(--bg);
-    margin-top: 0.8rem;
-    opacity: 0.9;
-  }
-  @media (max-width: 920px) {
-    .hero {
+
+  .cta-banner .btn { position: relative; z-index: 1; }
+
+  @media (max-width: 960px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-top: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+
+    .how-it-works-grid {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
+
+    .how-it-works-grid::before { display: none; }
+    .step p { max-width: none; }
+
+    .cta-banner { padding: 2.5rem 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 
+<!-- ────────────────────────────────────────────────────── -->
+<!-- HERO                                                   -->
+<!-- ────────────────────────────────────────────────────── -->
 <header class="site-header" id="top">
   <section class="hero container">
     <div class="hero-copy">
-      <p class="eyebrow">Cinematic travel inspiration</p>
-      <h1>Discover Vintage Travel Experiences & Itineraries</h1>
-      <p>From velvet-car rail journeys to sunlit coastal loops, explore our curated collection of nostalgic travel guides and itineraries. Concierge booking service launching soon.</p>
+      <div class="hero-badge">Concierge Booking · Spring 2026</div>
+      <h1 class="hero-title">
+        Discover <em>Vintage</em> Travel<br>
+        Experiences &amp; Itineraries
+      </h1>
+      <p>From velvet-car rail journeys to sunlit coastal loops — explore our curated collection of nostalgic travel guides and bespoke itineraries. Concierge booking service launching soon.</p>
       <div class="hero-cta">
-        <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary">Join Waitlist</a>
-        <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">Browse Travel Guides</a>
+        <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary btn-lg">Join the Waitlist</a>
+        <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary btn-lg">Browse Travel Guides</a>
       </div>
     </div>
-    <aside class="hero-panel gradient-card">
-      <h3>What's coming <span class="coming-soon-badge">Spring 2026</span></h3>
+
+    <aside class="gradient-card" aria-label="Coming soon highlights">
+      <h3>What&rsquo;s coming <span class="coming-soon-badge">Spring 2026</span></h3>
       <ul>
-        <li>✨ Boutique stays + iconic routes</li>
-        <li>🎯 Handcrafted pacing, not rushed tours</li>
-        <li>📞 Personal concierge planning</li>
+        <li>✨ Boutique stays &amp; iconic heritage routes</li>
+        <li>🎯 Handcrafted pacing — not rushed tours</li>
+        <li>📞 Personal concierge planning, end-to-end</li>
+        <li>🔒 Exclusive early access for waitlist members</li>
       </ul>
     </aside>
   </section>
 </header>
 
+<!-- ────────────────────────────────────────────────────── -->
+<!-- STATS STRIP                                            -->
+<!-- ────────────────────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="container stats-grid">
+    <div class="stat-item">
+      <span class="stat-number">25+</span>
+      <span class="stat-label">Curated Guides</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">5</span>
+      <span class="stat-label">Continents Covered</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">3</span>
+      <span class="stat-label">Journey Types</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">2026</span>
+      <span class="stat-label">Launch Year</span>
+    </div>
+  </div>
+</div>
+
+<!-- ────────────────────────────────────────────────────── -->
+<!-- FEATURED TRIPS                                         -->
+<!-- ────────────────────────────────────────────────────── -->
 <section class="section container" id="featured">
   <div class="section-header">
     <p class="eyebrow">Featured travel guides</p>
     <h2>Signature Journeys</h2>
   </div>
+
   <div class="cards three-up">
-    <article class="card rich-card animate-on-scroll">
-      <!-- Replace this placeholder with: Venice Simplon-Orient-Express luxury train exterior -->
-      <div class="card-image-placeholder">🚂</div>
-      <!-- <img src="/images/orient-express.jpg" alt="Venice Simplon-Orient-Express" class="card-image"> -->
-      <h3>Grand Continental Sleeper</h3>
-      <p>Paris → Venice → Vienna aboard the Venice Simplon-Orient-Express with luxe rail cabins and private city hosts.</p>
-      <a href="{{ site.baseurl }}/paris-venice-vienna-rail.html" class="card-link">Learn more →</a>
+    <article class="card rich-card reveal">
+      <div class="card-image-placeholder" aria-hidden="true">🚂</div>
+      <div class="card-body">
+        <h3>Grand Continental Sleeper</h3>
+        <p>Paris → Venice → Vienna aboard the Venice Simplon-Orient-Express with luxe rail cabins and private city hosts.</p>
+        <a href="{{ site.baseurl }}/paris-venice-vienna-rail.html" class="card-link">Explore journey →</a>
+      </div>
     </article>
-    <article class="card rich-card animate-on-scroll">
-      <!-- Replace this placeholder with: Classic car on Route 66 with desert landscape -->
-      <div class="card-image-placeholder">🚗</div>
-      <!-- <img src="/images/route-66.jpg" alt="Route 66 Classic Car" class="card-image"> -->
-      <h3>Route 66 Heritage Drive</h3>
-      <p>A colorful Americana road odyssey with retro motels, classic diners, and local storytellers from Chicago to Santa Monica.</p>
-      <a href="{{ site.baseurl }}/route-66-luxury-road-trip.html" class="card-link">Learn more →</a>
+
+    <article class="card rich-card reveal">
+      <div class="card-image-placeholder" aria-hidden="true">🚗</div>
+      <div class="card-body">
+        <h3>Route 66 Heritage Drive</h3>
+        <p>A colorful Americana road odyssey with retro motels, classic diners, and local storytellers from Chicago to Santa Monica.</p>
+        <a href="{{ site.baseurl }}/route-66-luxury-road-trip.html" class="card-link">Explore journey →</a>
+      </div>
     </article>
-    <article class="card rich-card animate-on-scroll">
-      <!-- Replace this placeholder with: Traditional Japanese ryokan with mountain view -->
-      <div class="card-image-placeholder">⛩️</div>
-      <!-- <img src="/images/ryokan-japan.jpg" alt="Traditional Japanese Ryokan" class="card-image"> -->
-      <h3>Historic Ryokans of Japan</h3>
-      <p>Tokyo to Kyoto via traditional inns. Onsen baths, kaiseki feasts, temple gardens, and tea ceremonies.</p>
-      <a href="{{ site.baseurl }}/japan-vintage-hotels-guide.html" class="card-link">Learn more →</a>
+
+    <article class="card rich-card reveal">
+      <div class="card-image-placeholder" aria-hidden="true">⛩️</div>
+      <div class="card-body">
+        <h3>Historic Ryokans of Japan</h3>
+        <p>Tokyo to Kyoto via traditional inns — onsen baths, kaiseki feasts, temple gardens, and tea ceremonies.</p>
+        <a href="{{ site.baseurl }}/japan-vintage-hotels-guide.html" class="card-link">Explore journey →</a>
+      </div>
     </article>
   </div>
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="{{ site.baseurl }}/trips.html" class="btn btn-secondary">View All 25+ Travel Guides</a>
+
+  <div style="text-align: center; margin-top: 2.5rem;">
+    <a href="{{ site.baseurl }}/trips.html" class="btn btn-outline">View All 25+ Travel Guides</a>
   </div>
 </section>
 
+<!-- ────────────────────────────────────────────────────── -->
+<!-- HOW IT WORKS                                           -->
+<!-- ────────────────────────────────────────────────────── -->
+<section class="section accent" id="how-it-works">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">The process</p>
+      <h2>How VintageTrips Works</h2>
+    </div>
+
+    <div class="how-it-works-grid">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Browse &amp; Discover</h3>
+        <p>Explore 25+ curated guides across rail, road, and sea journeys worldwide.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Request Your Itinerary</h3>
+        <p>Tell us your dream trip and a concierge will craft a bespoke vintage journey.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Travel in Style</h3>
+        <p>We handle every detail, from bookings to on-trip support — you just enjoy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────── -->
+<!-- FAQ                                                    -->
+<!-- ────────────────────────────────────────────────────── -->
 <section class="section container" id="faq">
   <div class="section-header">
     <p class="eyebrow">Common questions</p>
-    <h2>FAQ</h2>
+    <h2>Frequently Asked Questions</h2>
   </div>
+
   <div class="faq-list">
     <details>
       <summary>When will the concierge service launch?</summary>
       <p>We're launching our full concierge booking service in Spring 2026. Join our waitlist to be notified when we go live and receive exclusive early access offers.</p>
     </details>
     <details>
-      <summary>Can I use these travel guides now?</summary>
+      <summary>Can I use these travel guides right now?</summary>
       <p>Absolutely! All our detailed travel guides and itineraries are available to read, save, and use for planning your own vintage adventures right now.</p>
     </details>
     <details>
       <summary>What will the concierge service include?</summary>
-      <p>Our upcoming service will include personalized itinerary planning, accommodation bookings, transportation arrangements, 24/7 support, and curated vintage travel experiences tailored to your preferences.</p>
+      <p>Our upcoming service will include personalised itinerary planning, accommodation bookings, transportation arrangements, 24/7 support, and curated vintage travel experiences tailored to your preferences.</p>
     </details>
     <details>
       <summary>How can I stay updated?</summary>
@@ -207,72 +385,83 @@ keywords: vintage travel, heritage train vacations, luxury road trips, slow trav
   </div>
 </section>
 
+<!-- ────────────────────────────────────────────────────── -->
+<!-- NEWSLETTER                                             -->
+<!-- ────────────────────────────────────────────────────── -->
 <section class="section accent" id="newsletter">
   <div class="container newsletter-wrap">
     <div>
       <p class="eyebrow">Stay inspired</p>
       <h2>Join Our Launch Waitlist</h2>
       <p>Get travel inspiration now, plus be first to know when our concierge service launches in Spring 2026.</p>
-      <p class="newsletter-promise">📧 1–2 emails per month · 🔒 Never sold or shared · ✉️ Unsubscribe anytime</p>
+      <div class="newsletter-promise">
+        <span>📧 1–2 emails per month</span>
+        <span>🔒 Never sold or shared</span>
+        <span>✉️ Unsubscribe anytime</span>
+      </div>
     </div>
+
     <div>
       <form class="newsletter" id="signup-form" action="https://formsubmit.co/info@vintagetrips.com" method="POST">
         <input type="hidden" name="_subject" value="New VintageTrips Waitlist Signup">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-        
+
         <label for="email" class="sr-only">Email address</label>
         <input id="email" name="email" type="email" placeholder="you@example.com" required aria-required="true" />
         <button type="submit" class="btn btn-primary" id="newsletter-btn">Join Waitlist</button>
       </form>
+
       <div class="newsletter-success" id="newsletter-success" role="status" aria-live="polite">
-        <strong>✅ Success!</strong> You're on the list! Check your email to confirm. Welcome to the VintageTrips community!
+        <strong>✅ You&rsquo;re on the list!</strong> Check your email to confirm. Welcome to the VintageTrips community!
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────── -->
+<!-- CTA BANNER                                             -->
+<!-- ────────────────────────────────────────────────────── -->
+<section class="section container">
+  <div class="cta-banner">
+    <h2>Ready to Plan Your Vintage Journey?</h2>
+    <p>Tell us about your dream trip and we'll craft a personalised itinerary with our concierge expertise.</p>
+    <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary btn-lg">Request Custom Itinerary</a>
   </div>
 </section>
 
 <script>
   // Newsletter form handling
   const newsletterForm = document.getElementById('signup-form');
-  const newsletterBtn = document.getElementById('newsletter-btn');
+  const newsletterBtn  = document.getElementById('newsletter-btn');
   const newsletterSuccess = document.getElementById('newsletter-success');
-  
+
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
       newsletterBtn.disabled = true;
-      newsletterBtn.textContent = 'Joining...';
-      
-      const formData = new FormData(newsletterForm);
-      
+      newsletterBtn.textContent = 'Joining…';
+
       fetch(newsletterForm.action, {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        body: new FormData(newsletterForm),
+        headers: { 'Accept': 'application/json' }
       })
       .then(response => {
         if (response.ok) {
           newsletterForm.style.display = 'none';
           newsletterSuccess.classList.add('active');
-        } else {
-          throw new Error('Submission failed');
-        }
+        } else { throw new Error(); }
       })
-      .catch(error => {
-        console.error('Newsletter error:', error);
-        alert('There was an error. Please try again or email us directly at info@vintagetrips.com');
+      .catch(() => {
+        alert('Something went wrong. Please try again or email us at info@vintagetrips.com');
         newsletterBtn.disabled = false;
         newsletterBtn.textContent = 'Join Waitlist';
       });
     });
   }
-  
-  // Check for URL param ?subscribed=true
+
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('subscribed') === 'true' && newsletterForm) {
     newsletterForm.style.display = 'none';

@@ -6,207 +6,73 @@ keywords: vintage travel, heritage trips, luxury train travel, classic road trip
 ---
 
 <style>
-  .trips-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    padding: 4rem 0 3rem;
-    color: var(--surface);
-    text-align: center;
-  }
-  .trips-hero h1 {
-    color: var(--surface);
-    margin-bottom: 1rem;
-  }
-  .trips-hero p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    color: var(--bg);
-  }
-  .filter-bar {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem 0;
-    background: var(--bg);
-    border-bottom: 2px solid var(--border);
-  }
-  .filter-btn {
-    padding: 0.6rem 1.2rem;
-    border: 2px solid var(--border);
-    background: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Arial', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text);
-    transition: var(--transition);
-  }
-  .filter-btn:hover,
-  .filter-btn.active {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-  }
-  .trips-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    padding: 3rem 0;
-  }
-  .trip-card {
+  .trips-hero { padding: 4rem 0 3.5rem; }
+
+  .can-find-banner {
     background: var(--surface);
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-  }
-  .trip-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(31, 42, 68, 0.2);
-    border-color: var(--accent);
-  }
-  .trip-image {
-    width: 100%;
-    height: 220px;
-    background: linear-gradient(135deg, var(--bg), var(--border));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    border-bottom: 2px solid var(--border);
-  }
-  .trip-content {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .trip-category {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.8rem;
-    align-self: flex-start;
-  }
-  .trip-title {
-    font-size: 1.3rem;
-    color: var(--primary);
-    margin-bottom: 0.6rem;
-    font-family: 'Georgia', serif;
-    font-weight: 600;
-  }
-  .trip-location {
-    color: var(--accent);
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-  }
-  .trip-description {
-    color: var(--secondary);
-    line-height: 1.7;
-    margin-bottom: 1.2rem;
-    font-size: 0.95rem;
-    flex: 1;
-  }
-  .trip-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    margin-top: auto;
-  }
-  .trip-duration {
-    color: var(--secondary);
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  .trip-link {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 1rem;
+    border-radius: var(--radius-lg);
+    padding: 3.5rem;
     text-align: center;
-    transition: var(--transition);
-    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    margin: 3rem 0;
+    box-shadow: var(--shadow-sm);
   }
-  .trip-link:hover {
-    background: var(--accent-hover);
-    transform: translateY(-2px);
-  }
-  .region-header {
-    margin: 3rem 0 1.5rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 3px solid var(--accent);
-  }
-  .region-header h2 {
-    color: var(--primary);
-    font-size: 2rem;
-    font-family: 'Georgia', serif;
+
+  .can-find-banner h2 { margin-bottom: 0.75rem; }
+  .can-find-banner p  {
+    color: var(--text-muted);
+    max-width: 52ch;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
   }
 </style>
 
-<header class="trips-hero">
+<header class="page-hero trips-hero" id="top">
   <div class="container">
-    <p class="eyebrow">CURATED WORLDWIDE</p>
-    <h1>Browse Vintage Trips & Experiences</h1>
-    <p>Handpicked heritage journeys across all continents - from European sleeper trains to African safaris, Asian temple routes to South American adventures.</p>
-    <a href="{{ site.baseurl }}/" class="btn btn-secondary">← Back to Home</a>
+    <p class="eyebrow">Curated Worldwide</p>
+    <h1>Browse Vintage Trips &amp; Experiences</h1>
+    <p style="max-width:680px;margin-inline:auto;margin-top:1rem;">Handpicked heritage journeys across all continents — from European sleeper trains to African safaris, Asian temple routes to South American adventures.</p>
   </div>
 </header>
 
-<section class="filter-bar">
+<div class="filter-bar" role="toolbar" aria-label="Filter trips by category">
   <button class="filter-btn active" data-filter="all">All Trips</button>
   <button class="filter-btn" data-filter="train">Heritage Trains</button>
   <button class="filter-btn" data-filter="road">Classic Road Trips</button>
   <button class="filter-btn" data-filter="cruise">Vintage Cruises</button>
   <button class="filter-btn" data-filter="hotel">Boutique Stays</button>
   <button class="filter-btn" data-filter="safari">Vintage Safaris</button>
-</section>
+</div>
 
 <div class="container">
-  {% assign regions = site.data.trips | group_by: "region" %}
   {% assign region_order = "Europe,Asia,Americas,Africa,Oceania" | split: "," %}
-  
+
   {% for region_name in region_order %}
     {% assign region_trips = site.data.trips | where: "region", region_name %}
     {% if region_trips.size > 0 %}
       <div class="region-header">
-        <h2>
-          {% if region_name == "Europe" %}🇪🇺{% endif %}
-          {% if region_name == "Asia" %}🌏{% endif %}
-          {% if region_name == "Americas" %}🌎{% endif %}
-          {% if region_name == "Africa" %}🌍{% endif %}
+        <span>
+          {% if region_name == "Europe"  %}🇪🇺{% endif %}
+          {% if region_name == "Asia"    %}🌏{% endif %}
+          {% if region_name == "Americas"%}🌎{% endif %}
+          {% if region_name == "Africa"  %}🌍{% endif %}
           {% if region_name == "Oceania" %}🌏{% endif %}
-          {{ region_name }}
-        </h2>
+        </span>
+        <h2>{{ region_name }}</h2>
       </div>
-      
+
       <div class="trips-grid">
         {% for trip in region_trips %}
-          <article class="trip-card" data-category="{{ trip.category }}">
-            <div class="trip-image">{{ trip.emoji }}</div>
+          <article class="trip-card reveal" data-category="{{ trip.category }}">
+            <div class="trip-image" aria-hidden="true">{{ trip.emoji }}</div>
             <div class="trip-content">
               <span class="trip-category">{{ trip.category_label }}</span>
               <h3 class="trip-title">{{ trip.title }}</h3>
               <p class="trip-location">📍 {{ trip.location }}</p>
               <p class="trip-description">{{ trip.description }}</p>
               <div class="trip-meta">
-                <span class="trip-duration">⏱️ {{ trip.duration }}</span>
+                <span class="trip-duration">⏱ {{ trip.duration }}</span>
               </div>
               <a href="{{ site.baseurl }}/request-itinerary.html?trip={{ trip.title | url_encode }}" class="trip-link">Request Information →</a>
             </div>
@@ -216,35 +82,26 @@ keywords: vintage travel, heritage trips, luxury train travel, classic road trip
     {% endif %}
   {% endfor %}
 
-  <section class="section" style="text-align: center; padding: 4rem 0; background: var(--bg); border-radius: 12px; margin: 3rem 0;">
-    <div class="container">
-      <h2 style="color: var(--primary); margin-bottom: 1rem;">Can't Find Your Perfect Trip?</h2>
-      <p style="color: var(--secondary); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Our concierge team can create custom vintage travel experiences tailored to your preferences, budget, and timeline.</p>
-      <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary" style="display: inline-block;">Request Custom Itinerary</a>
-    </div>
-  </section>
+  <div class="can-find-banner">
+    <h2>Can&rsquo;t Find Your Perfect Trip?</h2>
+    <p>Our concierge team can create custom vintage travel experiences tailored to your preferences, budget, and timeline.</p>
+    <a href="{{ site.baseurl }}/request-itinerary.html" class="btn btn-primary">Request Custom Itinerary</a>
+  </div>
 </div>
 
 <script>
-  // Filter functionality
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const tripCards = document.querySelectorAll('.trip-card');
+  const tripCards  = document.querySelectorAll('.trip-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active button
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.dataset.filter;
-
-      // Filter cards
       tripCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.style.display = show ? 'flex' : 'none';
       });
     });
   });
