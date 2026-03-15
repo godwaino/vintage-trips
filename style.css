@@ -190,14 +190,14 @@ p { max-width: 72ch; }
   position: sticky;
   top: 0;
   z-index: 200;
-  background: transparent;
-  transition: background var(--transition), box-shadow var(--transition), backdrop-filter var(--transition);
+  background: rgba(27, 38, 64, 0.97);
+  backdrop-filter: blur(12px) saturate(1.5);
+  box-shadow: 0 2px 16px rgba(27,38,64,0.2);
+  transition: box-shadow var(--transition);
 }
 
 .global-nav.scrolled {
-  background: rgba(27, 38, 64, 0.92);
-  backdrop-filter: blur(18px) saturate(1.8);
-  box-shadow: 0 4px 24px rgba(27,38,64,0.3);
+  box-shadow: 0 4px 28px rgba(27,38,64,0.4);
 }
 
 .nav {
