@@ -31,11 +31,14 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const navList    = document.querySelector('.nav-links');
 
+  const hamburgerSVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  const closeSVG     = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
   if (menuToggle && navList) {
     menuToggle.addEventListener('click', () => {
       const isOpen = navList.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', isOpen);
-      menuToggle.textContent = isOpen ? '✕' : '☰';
+      menuToggle.innerHTML = isOpen ? closeSVG : hamburgerSVG;
     });
 
     // Close when a link is clicked
@@ -43,7 +46,7 @@
       link.addEventListener('click', () => {
         navList.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
+        menuToggle.innerHTML = hamburgerSVG;
       });
     });
 
@@ -52,7 +55,7 @@
       if (!e.target.closest('.nav') && navList.classList.contains('open')) {
         navList.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
+        menuToggle.innerHTML = hamburgerSVG;
       }
     });
 
@@ -61,7 +64,7 @@
       if (e.key === 'Escape' && navList.classList.contains('open')) {
         navList.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
+        menuToggle.innerHTML = hamburgerSVG;
         menuToggle.focus();
       }
     });
